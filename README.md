@@ -49,13 +49,19 @@ sudo apt-get install jq
 
 # Data Ingestion
 
-Suppose you have a file named `individuals.json` containing 100 entries. First, you'll need to process it to make it compatible with the Elasticsearch API:
+Suppose you have a file named `data/individuals.json` containing 100 entries. First, you'll need to process it to make it compatible with the Elasticsearch API:
 
 ```bash
-jq -c '.[] | {"index": {"_index": "dataset1"}}, .' individuals.json > dataset1.json
+jq -c '.[] | {"index": {"_index": "dataset1"}}, .' data/individuals.json > dataset1.json
 ```
 
-This command flattens the data, potentially losing its nested structure. If maintaining nestedness is crucial, you'll need to use a `mapping.json` file to inform Elasticsearch of the data's structure.
+Now perform the data ingestion:
+
+```
+curl -H "Content-Type: application/json" -XPOST "http://localhost:9200/index_name/_bulk?pretty" --data-binary "@dataset1.json"
+```
+
+This command flattens the data, potentially losing its nested structure. If maintaining nestedness is crucial, you'll need to use a `data/mapping.json` file to inform Elasticsearch of the data's structure.
 
 ### Deleting the Old Index
 
@@ -64,14 +70,20 @@ First, delete the old index:
 ```bash
 curl -X DELETE "http://localhost:9200/dataset1"
 ```
-
 ### Sending the Right Parameters
 
 Then, create the index with the correct structure:
 
 ```bash
-curl -X PUT "http://localhost:9200/dataset1_nested" -H 'Content-Type: application/json' -d'@mapping.json'
+ curl -X PUT "http://localhost:9200/dataset1" -H 'Content-Type: application/json' -d'@data/mapping.json'
 ```
+
+Now perform the data ingestion:
+
+```
+curl -H "Content-Type: application/json" -XPOST "http://localhost:9200/index_name/_bulk?pretty" --data-binary "@dataset1.json"
+```
+
 
 # Data Query
 
@@ -93,6 +105,7 @@ curl -X GET "http://localhost:9200/dataset1/_search" -H 'Content-Type: applicati
     }
   }
 }
+'
 ```
 
 # Pheno-Search
