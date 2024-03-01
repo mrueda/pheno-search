@@ -1,0 +1,22 @@
+**Pheno-Ranker** has been developed at [CNAG](https://cnag.eu), Barcelona, Spain.
+
+## Developers
+
+=== "Module"
+
+    * [Manuel Rueda](https://github.com/mrueda)
+
+=== "Documentation"
+
+    * [Manuel Rueda](https://github.com/mrueda)
+
+## Acknowledgments
+
+=== "CNAG"
+
+    * [Ivo G. Gut](https://scholar.google.com/citations?user=YKdDEVYAAAAJ) and his [team](https://www.cnag.eu/teams/genome-research-unit/biomedical-genomics-group)
+    * [Davide Piscia](https://github.com/dpiscia) and his [team](https://www.cnag.eu/teams/bioinformatics-unit/data-platforms-and-tools-development)
+
+=== "External"
+
+    * TBA
