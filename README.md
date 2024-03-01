@@ -21,6 +21,8 @@
 
 ## Installing Elasticsearch
 
+ElasticSearch [LICENSE](https://www.elastic.co/pricing/faq/licensing). 
+
 ### From Docker Image:
 
 To pull the Docker image, use the following command:
