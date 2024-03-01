@@ -1,0 +1,19 @@
+{
+  "query": {
+    "nested": {
+      "path": "diseases",
+      "query": {
+        "bool": {
+          "must": [
+            {
+              "match": {
+                "diseases.diseaseCode.label": "Alzheimer disease, susceptibility to"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+

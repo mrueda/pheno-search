@@ -1,0 +1,113 @@
+{
+  "mappings": {
+    "properties": {
+      "diseases": {
+        "type": "nested",
+        "properties": {
+          "ageOfOnset": {
+            "properties": {
+              "age": {
+                "properties": {
+                  "iso8601duration": {
+                    "type": "text",
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "diseaseCode": {
+            "properties": {
+              "id": {
+                "type": "keyword"
+              },
+              "label": {
+                "type": "text"
+              }
+            }
+          }
+        }
+      },
+      "ethnicity": {
+        "properties": {
+          "id": {
+            "type": "keyword"
+          },
+          "label": {
+            "type": "text"
+          }
+        }
+      },
+      "exposures": {
+        "type": "nested",
+        "properties": {
+          "ageAtExposure": {
+            "properties": {
+              "age": {
+                "properties": {
+                  "iso8601duration": {
+                    "type": "text",
+                    "fields": {
+                      "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "duration": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "exposureCode": {
+            "properties": {
+              "id": {
+                "type": "keyword"
+              },
+              "label": {
+                "type": "text"
+              }
+            }
+          },
+          "unit": {
+            "properties": {
+              "id": {
+                "type": "keyword"
+              },
+              "label": {
+                "type": "text"
+              }
+            }
+          }
+        }
+      },
+      "id": {
+        "type": "keyword"
+      },
+      "sex": {
+        "properties": {
+          "id": {
+            "type": "keyword"
+          },
+          "label": {
+            "type": "text"
+          }
+        }
+      }
+    }
+  }
+}
+
